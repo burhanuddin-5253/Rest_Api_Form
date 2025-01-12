@@ -89,6 +89,26 @@ app.delete('/api/userdata', async (req, res) => {
         });
     } catch (err) {
         console.error(err);
+        res.status(500).json({ error: 'Failed to delete all user data' });
+    }
+});
+
+app.delete('/api/userdata/del', async (req, res) => {
+    try {
+        const {email} = req.body;
+        if (!email) {
+            return res.status(400).json({ error: 'Email is required to delete user data' });
+        }
+
+        const prevUser = await User.findOneAndDelete({email});
+        if (!prevUser) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        res.status(200).json({
+            message: 'User deleted successfully',
+        });
+    } catch (err) {
+        console.error(err);
         res.status(500).json({ error: 'Failed to delete user data' });
     }
 });
