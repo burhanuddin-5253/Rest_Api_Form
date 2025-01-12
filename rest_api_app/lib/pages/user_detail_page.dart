@@ -34,7 +34,6 @@ class UserDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Profile Card
             Container(
               width: MediaQuery.of(context).size.width * 0.35,
               padding: const EdgeInsets.all(16),
@@ -86,7 +85,6 @@ class UserDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
 
-            // Details Section
             _buildDetailSection(
               context,
               'Personal Information',

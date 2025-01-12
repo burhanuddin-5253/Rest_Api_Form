@@ -171,7 +171,6 @@ class _UserFormPageState extends State<UserFormPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Name Fields
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 2.0),
                   child: Text(
@@ -212,7 +211,6 @@ class _UserFormPageState extends State<UserFormPage> {
                 ),
                 const SizedBox(height: 16),
 
-                // Date of Birth
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 2.0),
                   child: Text(
@@ -237,7 +235,6 @@ class _UserFormPageState extends State<UserFormPage> {
                 ),
                 const SizedBox(height: 16),
 
-                // Address Fields
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 2.0),
                   child: Text(
@@ -349,7 +346,6 @@ class _UserFormPageState extends State<UserFormPage> {
                   ),
                 const SizedBox(height: 20),
 
-                // Email and Phone Number
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 2.0),
                   child: Text(
