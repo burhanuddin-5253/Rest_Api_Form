@@ -54,4 +54,29 @@ class ApiService {
       throw Exception('Error deleting data: $e');
     }
   }
+
+  Future<Map<String, dynamic>> updateUser(
+      Map<String, dynamic> updatedData) async {
+    try {
+      final response = await http.put(
+        Uri.parse('$baseUrl/userdata'),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode({
+          'email': updatedData['email'],
+          ...updatedData,
+        }),
+      );
+
+      debugPrint('${response.statusCode}');
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        throw Exception('Failed to update data: ${response.body}');
+      }
+    } catch (e) {
+      throw Exception('Error updating data: $e');
+    }
+  }
 }

@@ -26,7 +26,7 @@ class UserDetailPage extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
         ),
-        title: Text('Hello ${user.firstName} ${user.lastName}'),
+        title: Text('Hello ${user.firstName} ${user.lastName} ${user.surName}'),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -131,7 +131,7 @@ class UserDetailPage extends StatelessWidget {
                     userModel: user,
                   ),
                 ),
-                (route) =>false,
+                (route) => false,
               ),
               text: 'Update',
             ),

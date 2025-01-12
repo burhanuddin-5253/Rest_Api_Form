@@ -69,7 +69,13 @@ class _UserFormPageState extends State<UserFormPage> {
         region: _regionController.text,
       );
 
-      final res = await apiService.addUser(userModel.toJson());
+      final res = widget.userModel == null
+          ? await apiService.addUser(
+              userModel.toJson(),
+            )
+          : await apiService.updateUser(
+              userModel.toJson(),
+            );
 
       debugPrint(
           "User Name: ${userModel.firstName} ${userModel.lastName} \nResponse: ${res.toString()}");

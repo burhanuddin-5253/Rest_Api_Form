@@ -56,6 +56,31 @@ app.post('/api/useradd' ,async (req, res) => {
     }
 });
 
+app.put('/api/userdata', async (req, res) => {
+    try {
+        const { email, ...updatedData } = req.body;
+
+        if (!email) {
+            return res.status(400).json({ error: 'Email is required to update user data' });
+        }
+
+        const updatedUser = await User.findOneAndUpdate({ email }, updatedData, { new: true, runValidators: true });
+
+        if (!updatedUser) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.status(200).json({
+            message: 'User updated successfully',
+            user: updatedUser,
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to update user data' });
+    }
+});
+
+
 app.delete('/api/userdata', async (req, res) => {
     try {
         await User.deleteMany();
